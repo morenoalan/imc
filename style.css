@@ -1,0 +1,81 @@
+html, body {
+    background: #f9f9f9;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+    background-color: #f9f9f9;
+    text-align: center;
+
+    /* Fonte */
+    font-family: 'Roboto', sans-serif;
+}
+
+input {
+    height: 20px;
+    width: 100px;
+    background-color: #D8D8D8;
+    text-align: center;
+    border: hidden;
+    border-radius: 5px;
+}
+
+input::placeholder {
+    text-align: center;
+    color: #6E6E6E;
+    border: hidden;
+    font-weight: bold;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container1 {
+    display: grid;
+    grid-template-columns: 120px 20px 100px;
+    justify-content: center;
+}
+
+.bloco1 {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+.bloco1a{
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: #000;        
+}
+
+.bloco1, .bloco1a, .bloco1b, .bloco2, .bloco3 {
+    background-color: transparent;
+}
+
+.bloco2, .bloco3 {
+    font-weight: bold;
+}
+
+.tabela {
+    font-size: 14px;
+    justify-content: right;
+}
