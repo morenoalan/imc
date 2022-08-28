@@ -1,8 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 html, body {
     background: #f9f9f9;
     height: 100%;
-    margin: 0;
-    padding: 0;
 }
 
 body {
@@ -14,7 +17,7 @@ body {
     text-align: center;
 
     /* Fonte */
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Share Tech Mono', monospace;
 }
 
 input {
@@ -78,4 +81,21 @@ input[type=number] {
 .tabela {
     font-size: 14px;
     justify-content: right;
+}
+
+.openReference:not(:first-child) {
+    height: 0;
+}
+
+footer {
+    background-color: Crimson;
+    color: white;
+    position: fixed;
+    height: 40px;
+    width: 100%;
+    bottom:0;
+    vertical-align: middle;
+}
+footer > h3 {
+    vertical-align: middle; /*not working*/
 }

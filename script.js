@@ -33,3 +33,9 @@ function imc_calc() {
 }
 
 imc_calc();
+
+document.getElementById("copyrightYear").innerHTML =  new Date().getUTCFullYear();
+
+function openReference(){
+    document.getElementById("reference").classList.toggle("openReference");
+}
