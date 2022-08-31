@@ -1,41 +1,37 @@
-function imc_calc() {
-    let conta01 = "";
-    let conta02 = "";
-    let valorP = Number(document.getElementById("peso").value);
-    let valorA = Number(document.getElementById("altura").value);
-    if(valorP && valorA != ""){
-        conta02 = valorP / Math.pow(valorA, 2);
-        conta01 = parseFloat(conta02.toFixed(2));
-        document.getElementById("resultado_imc").innerHTML = conta01 + " kg/m²";
+function imcCalc() {
+    let valuePrint = "";
+    let valueResult = "";
+    let valueWeight = Number(document.getElementById("peso").value);
+    let valueHeight = Number(document.getElementById("altura").value);
+    if(valueWeight && valueHeight != ""){
+        valueResult = valueWeight / Math.pow(valueHeight, 2);
+        valuePrint = parseFloat(valueResult.toFixed(2));
+        document.getElementById("imc-result").innerHTML = valuePrint + " kg/m²";
 
-        if(conta01 < 17){
+        if(valuePrint < 17){
             document.getElementById("situation").innerHTML = "Muito abaixo do peso";
-        }else if(conta01 < 18.49){
+        }else if(valuePrint < 18.49){
             document.getElementById("situation").innerHTML = "Abaixo do peso";
-        }else if(conta01 < 24.99){
+        }else if(valuePrint < 24.99){
             document.getElementById("situation").innerHTML = "Peso normal";
-        }else if(conta01 < 29.99){
+        }else if(valuePrint < 29.99){
             document.getElementById("situation").innerHTML = "Acima do peso";
-        }else if(conta01 < 34.99){
+        }else if(valuePrint < 34.99){
             document.getElementById("situation").innerHTML = "Obesidade I";
-        }else if(conta01 < 39.99){
+        }else if(valuePrint < 39.99){
             document.getElementById("situation").innerHTML = "Obesidade II (severa)";
         }else{
             document.getElementById("situation").innerHTML = "Obesidade III (mórbida)";
         }
 
     }else{
-        document.getElementById("resultado_imc").innerHTML = "IMC (kg/m²)";
+        document.getElementById("imc-result").innerHTML = "IMC (kg/m²)";
         document.getElementById("situation").innerHTML = "Situação";
     }
 
-    setTimeout(imc_calc, 1000/2);
+    setTimeout(imcCalc, 1000/2);
 }
 
-imc_calc();
+imcCalc();
 
-document.getElementById("copyrightYear").innerHTML =  new Date().getUTCFullYear();
-
-function openReference(){
-    document.getElementById("reference").classList.toggle("openReference");
-}
+document.getElementById("copyleft-year").innerHTML =  new Date().getUTCFullYear();
