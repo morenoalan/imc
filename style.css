@@ -30,6 +30,9 @@ main {
     height:100%;
 }
 div#logo {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
     text-align: center;
     margin-top: 10px;
 }
