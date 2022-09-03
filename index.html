@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset='utf-8' />
-        <meta name='viewport' content='width=device-width, user-scalable=no, initial-scale=1' />
-        <title>IMC</title>
-        <meta name='description' content='Calculadora de IMC (Índice de Massa Corporal)' />
-        <meta name='keywords' content='IMC, Cálculo de IMC, Índice de Massa Corporal' />
-        <meta name='author' content='github.com/morenoalan' />
-        <meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109' />
-        <meta name='google-adsense-platform-domain' content='blogspot.com' />
-        <link rel='stylesheet' href='style.css' type='text/css' />
-        <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' />
-        <link rel='preconnect' href='https://fonts.googleapis.com' />
-        <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-        <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap' />
-        <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap' />
-    </head>
-<body  class='center'>
+<head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, user-scalable=no, initial-scale=1' />
+    <title>IMC</title>
+    <meta name='description' content='Calculadora de IMC (Índice de Massa Corporal)' />
+    <meta name='keywords' content='IMC, Cálculo de IMC, Índice de Massa Corporal' />
+    <meta name='author' content='github.com/morenoalan' />
+    <meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109' />
+    <meta name='google-adsense-platform-domain' content='blogspot.com' />
+    <link rel='stylesheet' href='style.css' type='text/css' />
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' />
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap' />
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap' />
+</head>
+<body class='centerH'>
     <header>
         <div id='logo'>
             <span id='logo-sign' class='material-symbols-outlined'>
@@ -26,9 +26,9 @@
         </div>
         <p>Índice de Massa Corporal</p>
     </header>
-    <main>
+    <main class='centerH'>
         <section id='container'>
-            <div id='column1' class='calc-column'>
+            <div id='column1' class='centerV'>
                 <div id='column1-row1' class='fraction-input'>
                     <input id='peso' onblur="'this.placeholder = &#39;Peso (kg)&#39;'" onfocus="'this.placeholder = &#39;&#39;'" placeholder='Peso (kg)' type='number'/>
                 </div>
@@ -36,10 +36,10 @@
                     <input id='altura' onblur="'this.placeholder = &#39;Altura (m)&#39;'" onfocus="'this.placeholder = &#39;&#39;'" placeholder='Altura (m)' type='number'/>
                 </div>
             </div>
-            <div id='column2' class='calc-column'>
+            <div id='column2' class='centerV'>
                 <p id='equal-sign'>=</p>
             </div>
-            <div id='column3' class='calc-column'>
+            <div id='column3' class='centerV'>
                 <p id='imc-result'>IMC (kg/m&#178;)</p>
             </div>
         </section>
@@ -67,8 +67,8 @@
             </details>
         </section>
     </main>
-    <footer>
-        <h3><a id='author' href='https://www.github.com/morenoalan'>Alan Moreno</a> <span id='copyleft'>&#169;</span> <span id='copyleft-year'>2020</span></h3>
+    <footer class='centerV'>
+        <p><a id='author' href='https://www.github.com/morenoalan'>Alan Moreno</a> <span id='copyleft'>&#169;</span> <span id='copyleft-year'>2020</span></p>
     </footer>
     <script type="text/javascript" id='script' src="script.js"></script>
 </body>
