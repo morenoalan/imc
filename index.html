@@ -17,7 +17,7 @@
     <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap' />
 </head>
 <body class='centerH'>
-    <header>
+    <header class='centerH'>
         <div id='logo'>
             <span id='logo-sign' class='material-symbols-outlined'>
                 line_weight
@@ -29,11 +29,13 @@
     <main class='centerH'>
         <section id='container'>
             <div id='column1' class='centerV'>
-                <div id='column1-row1' class='fraction-input'>
-                    <input id='peso' onblur="'this.placeholder = &#39;Peso (kg)&#39;'" onfocus="'this.placeholder = &#39;&#39;'" placeholder='Peso (kg)' type='number'/>
+                <div id='column1-row1'>
+                    <input id='weight' onblur="'this.placeholder = &#39;Peso (kg)&#39;'" onfocus="'this.placeholder = &#39;&#39;'" placeholder='Peso' type='number'/>
+                    <label id='label_kg'>kg</label>
                 </div>
-                <div id='column1-row2' class='fraction-input'>
-                    <input id='altura' onblur="'this.placeholder = &#39;Altura (m)&#39;'" onfocus="'this.placeholder = &#39;&#39;'" placeholder='Altura (m)' type='number'/>
+                <div id='column1-row2'>
+                    <input id='height' onblur="'this.placeholder = &#39;Altura (m)&#39;'" onfocus="'this.placeholder = &#39;&#39;'" placeholder='Altura (m)' type='number' pattern="^\d*(\.\d{0,2})?$" />
+                    <label id='label_m'>m²</label>
                 </div>
             </div>
             <div id='column2' class='centerV'>
@@ -63,7 +65,8 @@
                         <tr><td>Acima de 40</td><td>Obesidade III (mórbida)</td></tr>
                     </tbody>
                 </table>
-                <p>Fonte: <a href='https://pt.wikipedia.org/wiki/%C3%8Dndice_de_massa_corporal' target='_blank'>Wikipédia</a></p>    
+                <p>Fonte: <a href='https://pt.wikipedia.org/wiki/%C3%8Dndice_de_massa_corporal' target='_blank'>Wikipédia</a></p>
+                <div id='footer_space'></div>
             </details>
         </section>
     </main>

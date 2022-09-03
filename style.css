@@ -5,6 +5,7 @@
 :root {
     --color-one: crimson;
     --color-two: white;
+    --color-three: dimgray;
     --color-text-footer: ghostwhite;
     --color-body: transparent;
     --scale-logo: 1.7;
@@ -12,6 +13,7 @@
     --text-size-big: 20px;
     --text-size-medium: 16px;
     --text-size-small: 14px;
+    --max-width: 300px;
 }
 html, body {
     background: var(--color-body);
@@ -31,6 +33,7 @@ header {
     display:flex;
     flex-direction: column;
     justify-content: center;
+    max-width: var(--max-width);
 }
 div#logo {
     margin-top: 10px;
@@ -56,16 +59,21 @@ p {
 main {
     background-color: #bebebe;
     height:100%;
+    max-width: var(--max-width);
 }
 .centerH {
+    /*Horizontal alignment in the center */
     margin-left: auto;
     margin-right: auto;
 }
 .centerV {
-    /*Vertical align center */
+    /*Vertical alignment in the center */
     display:flex;
     flex-direction: column;
     justify-content: center;
+}
+.grid-sections {
+    display: block;
 }
 #container {
     display: grid;
@@ -73,16 +81,36 @@ main {
     justify-content: center;
 }
 #column1 {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
+    display: block;
+    direction: vertical;
 }
-#column1-row1{
+#column1-row1 {
     border-bottom-style: solid;
-    border-bottom-width: 2px;
-    border-bottom-color: #000;        
+    border-bottom-width: 3px;
+    border-bottom-color: var(--color-three);
+}
+#column1-row1,
+#column1-row2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
 }
 #column1, #column1-row1, #column1-row2, #column2, #column3 {
     background-color: transparent;
+}
+#column1-row1 > label,
+#column1-row2 > label {
+    color: var(--color-three);
+    font-size: var(--text-size-big);
+    font-weight: bold;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: -1em;
+}
+#column2 > p,
+#column3 > p {
+    color: var(--color-three);
+    font-size: calc(var(--text-size-bigger));
 }
 #column2, #column3 {
     font-weight: bold;
@@ -91,6 +119,8 @@ input {
     height: 100px;
     width: 140px;
     background-color: #D8D8D8;
+    font-size: calc(1.5 * var(--text-size-bigger));
+    font-weight: bold;
     text-align: center;
     border: hidden;
     border-radius: 5px;
@@ -98,8 +128,9 @@ input {
 }
 input::placeholder {
     text-align: center;
-    color: #6E6E6E;
+    color: var(--color-three);
     border: hidden;
+    font-size: var(--text-size-bigger);
     font-weight: bold;
 }
 /* Chrome, Safari, Edge, Opera */
@@ -116,12 +147,13 @@ input:focus {
     outline: none;
 }
 #situation {
+    margin-top: 10px;
+    margin-bottom: 10px;
     font-size: var(--text-size-bigger);
     justify-content: center;
 }
 table, summary, details > p {
     font-size: var(--text-size-small);
-    width: 300px;
     text-align: center;
 }
 summary {
@@ -132,6 +164,9 @@ th, details > p {
 }
 tr:nth-child(odd) {
     background-color: #ce9797;
+}
+#footer_space {
+    height: 40px;
 }
 footer {
     background-color: var(--color-one);

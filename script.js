@@ -1,8 +1,8 @@
 function imcCalc() {
     let valuePrint = "";
     let valueResult = "";
-    let valueWeight = Number(document.getElementById("peso").value);
-    let valueHeight = Number(document.getElementById("altura").value);
+    let valueWeight = Number(document.getElementById("weight").value);
+    let valueHeight = Number(document.getElementById("height").value);
     if(valueWeight && valueHeight != ""){
         valueResult = valueWeight / Math.pow(valueHeight, 2);
         valuePrint = parseFloat(valueResult.toFixed(2));
