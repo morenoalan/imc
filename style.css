@@ -1,6 +1,10 @@
 * {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
+    -webkit-user-select: none;
+    user-select: none;
+    touch-action: none;
+    -webkit-tap-highlight-color: transparent;
 }
 :root {
     --color-one: crimson;
@@ -26,7 +30,6 @@ body {
     width: 100vw;
     background-color: var(--color-body);
     text-align: center;
-    /* Fonte */
     font-family: 'Share Tech Mono', monospace;
 }
 header {
@@ -58,16 +61,14 @@ p {
 }
 main {
     background-color: #bebebe;
-    height:100%;
+    height:auto;
     max-width: var(--max-width);
 }
 .centerH {
-    /*Horizontal alignment in the center */
     margin-left: auto;
     margin-right: auto;
 }
 .centerV {
-    /*Vertical alignment in the center */
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -134,18 +135,23 @@ input::placeholder {
     font-weight: bold;
 }
 /* Chrome, Safari, Edge, Opera */
+/*
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+*/
 /* Firefox */
+/*
 input[type=number] {
     -moz-appearance: textfield;
 }
+*/
 input:focus {
     outline: none;
 }
+
 #situation {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -169,18 +175,32 @@ tr:nth-child(odd) {
     height: 40px;
 }
 footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: var(--color-one);
-    color: var(--color-text-footer);
-    position: fixed;
-    height: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 40px; /*auto*/
     width: 100%;
-    bottom: 0;
+    text-align: center;
 }
-#author {
+footer > p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 10pt;
+    color: var(--color-text-footer);
+    width: calc(100% - 20px);
+}
+footer > p > a {
     text-decoration: none;
     color: var(--color-text-footer);
 }
-#copyleft {
+
+.invert-horizontal {
     display: inline-block;
-    transform: rotate(180deg);
+    transform: scale(-1, 1);
+}
+.display-none {
+    display: none;
 }
