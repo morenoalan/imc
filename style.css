@@ -7,7 +7,7 @@
     -webkit-tap-highlight-color: transparent;
 }
 :root {
-    --color-one: crimson;
+    --color-one: #ca0b5f;
     --color-two: white;
     --color-three: dimgray;
     --color-text-footer: ghostwhite;
@@ -26,35 +26,38 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
     height: 100vh;
     width: 100vw;
     background-color: var(--color-body);
-    text-align: center;
     font-family: 'Share Tech Mono', monospace;
 }
 header {
-    display:flex;
-    flex-direction: column;
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     max-width: var(--max-width);
+    margin: 10px 0 10px 0;
 }
-div#logo {
-    margin-top: 10px;
+figure {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
-.material-symbols-outlined {
-    font-variation-settings:
-        'FILL' 1,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 48;
+figure > svg {
+    height: 70px;
 }
-#logo-sign {
-    transform: rotate(90deg) scale(var(--scale-logo));
+figcaption {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-justify: left;
 }
 h1 {
     font-family: 'Raleway','Arial', sans-serif;
-    font-size: var(--text-size-bigger);
-    transform: scale(var(--scale-logo));
+    font-size: 42px;
 }
 p {
     font-size: var(--text-size-small);
@@ -63,6 +66,19 @@ main {
     background-color: #bebebe;
     height:auto;
     max-width: var(--max-width);
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+main::-webkit-scrollbar {
+    width: 8px;
+}
+main::-webkit-scrollbar-track {
+    display: none;
+}
+main::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    background: var(--color-three);
 }
 .centerH {
     margin-left: auto;
@@ -134,20 +150,7 @@ input::placeholder {
     font-size: var(--text-size-bigger);
     font-weight: bold;
 }
-/* Chrome, Safari, Edge, Opera */
-/*
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-*/
-/* Firefox */
-/*
-input[type=number] {
-    -moz-appearance: textfield;
-}
-*/
+
 input:focus {
     outline: none;
 }
@@ -180,9 +183,9 @@ footer {
     justify-content: center;
     align-items: center;
     background-color: var(--color-one);
-    padding-top: 10px;
-    padding-bottom: 10px;
-    height: 40px; /*auto*/
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: 30px;
     width: 100%;
     text-align: center;
 }
