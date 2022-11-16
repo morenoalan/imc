@@ -4,6 +4,7 @@
     <meta charset='utf-8' />
     <meta name='viewport' content='width=device-width, user-scalable=no, initial-scale=1' />
     <title>IMC</title>
+    <link id='favicon' rel='shortcut icon' href='https://docs.google.com/uc?id=15mmGp-wOTbGOccjuBjh9EMOhczZ2ZDx4' alt='imc-logo' />
     <meta name='description' content='Calculadora de IMC (Índice de Massa Corporal)' />
     <meta name='keywords' content='IMC, Cálculo de IMC, Índice de Massa Corporal' />
     <meta name='author' content='github.com/morenoalan' />
@@ -12,45 +13,115 @@
     <link rel='stylesheet' href='style.css' type='text/css' />
     <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' />
     <link rel='preconnect' href='https://fonts.googleapis.com' />
-    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap' />
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin='crossorigin' />
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap' />
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600;700;800;900&display=swap' />
 </head>
-<body class='centerH'>
-    <header class='centerH'>
+<body>
+    <noscript>
+		<br />
+		You need to enable JavaScript to run this app.<br />
+        Você precisa ativar o JavaScript para executar esta aplicação.<br />
+		<br />
+    </noscript>
+    <header>
         <figure>
             <svg width="21.976416mm" height="26.458368mm" viewBox="0 0 21.976416 26.458368" version="1.1" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-1.1315916,3.5997987e-5)"><path style="fill:#b3ff80;stroke-width:0.370417;stroke-linecap:round;stroke-linejoin:round;stop-color:#000000" d="M 19.828449 6.3541843 C 19.175193 6.349117 18.519089 6.6577903 18.017014 7.3463746 C 17.511689 8.0394192 17.149642 9.1087814 17.022708 10.655086 C 16.980228 11.172556 17.027326 11.92629 17.212579 12.59504 C 14.125298 13.056324 11.621433 14.991412 10.343406 16.739391 A 0.18522702 0.18522702 0 0 0 10.341291 16.741507 C 9.3136134 18.187509 8.6672001 19.364937 8.3510924 20.268119 C 8.1930405 20.719711 8.1150906 21.103645 8.1226136 21.426909 C 8.1301156 21.750172 8.2294064 22.021926 8.4309542 22.20014 C 8.632502 22.378356 8.9145431 22.443677 9.2359188 22.419099 C 9.5572944 22.394515 9.9280133 22.283977 10.352926 22.092247 C 11.097399 21.756323 12.070722 21.055035 13.124289 20.197777 C 12.904776 20.947534 12.70093 21.809762 12.526119 22.802541 C 15.947096 21.266913 18.095197 17.621871 18.983818 13.369329 C 19.454541 11.116661 20.128712 8.4762546 19.828449 6.3541843 z " transform="matrix(0.9770806,0,0,0.9770806,-5.7025983,-5.6019049)"/><path style="fill:#ca0b5f;stroke-width:0.361927;stroke-linecap:round;stroke-linejoin:round;stop-color:#000000" d="M 13.683797 0.60664532 C 13.222735 0.60020042 12.76036 0.75492355 12.353129 1.0924038 C 12.357003 1.9333744 12.461081 2.8172598 12.670939 3.7304856 C 13.830094 8.7747202 5.7416378 15.091827 18.925338 15.78298 C 18.730729 15.339559 18.531578 14.927127 18.330542 14.545846 C 19.775805 15.219874 21.176569 15.609221 22.092586 15.497726 C 22.344465 15.467066 22.564882 15.400146 22.741125 15.282235 C 22.917368 15.164323 23.044809 14.987243 23.088391 14.774256 C 23.175551 14.348283 22.969063 13.829077 22.469824 13.163502 C 19.967573 9.5158918 17.359537 7.7189276 14.893542 7.0072882 C 15.001478 6.9250377 15.106879 6.8488647 15.220654 6.755624 C 16.682427 5.5577155 16.874125 4.0081696 16.403528 2.7827399 C 15.932929 1.5573106 14.828888 0.62265212 13.683797 0.60664532 z "/><path style="fill:#e6a76f;fill-opacity:1;stroke-width:0.370417;stroke-linecap:round;stroke-linejoin:round;stop-color:#000000" d="M 16.062251 16.585485 C 14.776539 16.598218 12.947621 17.399777 10.401055 19.195538 C 9.6865678 19.699373 8.97402 20.118465 8.2791639 20.488665 C 8.1700667 20.845862 8.1163507 21.157791 8.1226136 21.426909 C 8.1301136 21.750172 8.2294064 22.021925 8.4309542 22.20014 C 8.632502 22.378356 8.9145431 22.443677 9.2359188 22.419099 C 9.5572945 22.394519 9.9280132 22.283978 10.352926 22.092247 C 11.097398 21.756324 12.070722 21.055035 13.124289 20.197777 C 12.428547 22.574119 11.887075 26.069631 11.946989 31.329243 A 0.18522702 0.18522702 0 0 0 11.946989 31.338762 C 11.977159 31.779513 12.057949 32.115601 12.200854 32.364273 C 12.343758 32.612944 12.567243 32.769099 12.818064 32.803248 C 13.319707 32.871548 13.865395 32.54036 14.466602 32.014679 C 15.669017 30.963316 17.086394 29.030716 18.200538 27.104501 A 0.18522702 0.18522702 0 0 0 18.206884 27.094452 C 18.280988 26.948529 18.348562 26.808565 18.413679 26.670814 C 19.102583 20.780975 19.047683 16.555919 16.062251 16.585485 z " transform="matrix(0.9770806,0,0,0.9770806,-5.7025983,-5.6019049)"/><path style="fill:#5fbcd3;stroke-width:0.370417;stroke-linecap:round;stroke-linejoin:round;stop-color:#000000" d="M 18.171978 17.108025 C 14.340178 17.202031 17.586538 23.076161 18.126494 27.230375 C 18.151053 27.188407 18.176261 27.146472 18.200538 27.104501 A 0.18522702 0.18522702 0 0 0 18.206884 27.094981 C 18.638226 26.245596 18.907331 25.542566 19.130319 24.889526 C 19.493507 25.604595 19.94699 26.378271 20.683129 27.276389 A 0.18522702 0.18522702 0 0 0 20.693178 27.288024 C 22.781242 29.457191 24.510271 31.260649 25.702787 31.83856 C 26.000914 31.983039 26.27329 32.057234 26.528907 32.008861 C 26.784524 31.960493 26.994009 31.770139 27.11121 31.494784 C 27.345612 30.94408 27.332999 30.032071 27.101162 28.577448 A 0.18522702 0.18522702 0 0 0 27.099046 28.575333 C 26.509405 25.008369 25.574315 22.47413 24.596886 20.620357 C 26.076051 21.310196 27.509672 21.708676 28.447177 21.594565 C 28.65764 21.568947 28.846209 21.518165 29.006738 21.434842 C 23.237122 18.26269 19.944263 17.064545 18.171978 17.108025 z " transform="matrix(0.9770806,0,0,0.9770806,-5.7025983,-5.6019049)"/><path style="fill:none;stroke:#000000;stroke-width:0.362;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" d="m 5.050415,24.396471 c 0.2268459,3.313462 3.6113231,-0.477267 5.774125,-4.21648 4.114362,-8.101879 -2.7943975,-6.586139 2.72201,0.14409 4.079797,4.23826 6.848698,7.050911 5.950385,1.413584 C 17.500853,9.6626022 11.54691,8.9763135 13.54655,11.149149 c 3.387367,3.652684 10.360233,5.088647 7.678087,1.512856 C 14.028698,2.1642656 6.0458237,6.6977625 3.448283,10.250462 -1.0256079,16.54549 2.0050792,17.540639 8.1588367,11.386884 11.1428,8.4029206 4.8537815,7.1346632 5.050415,24.396471 Z"/><path style="fill:none;stroke:#000000;stroke-width:0.362;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" d="m 10.010564,4.2131697 c -0.1194202,1.4547939 0.157454,4.93818 3.995082,1.7931754 4.401114,-3.6067897 -3.314619,-10.082666 -3.995082,-1.7931754 z"/></g></svg>
             <figcaption>
                 <h1>IMC</h1>
-                <p>Índice de Massa Corporal</p>
+                <p>Calculadora de <br />Índice de Massa Corporal</p>
             </figcaption>
         </figure>
+        <ul id='settings'>
+            <li>
+                <button id='select-flag'>
+                    <img id='flag' class='flag' src='https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg' alt='BR'/>
+                </button>
+            </li>
+            <li>
+                <button>Kg/m&#178;</button>
+            </li>
+        </ul>
     </header>
-    <main class='centerH'>
-        <section id='container'>
-            <div id='column1' class='centerV'>
-                <div id='column1-row1'>
-                    <input id='weight' onblur="'this.placeholder = &#39;Peso (kg)&#39;'" onfocus="'this.placeholder = &#39;&#39;'" placeholder='Peso'/>
+    <main>
+        <section id='dial'>
+            <ul>
+                <li>
+                    <input id='weight' placeholder='PESO' autofocus='autofocus' maxlength='5' pattern='(/([^\d])+/gim, "")' onclick='whereIsTheFocus = "weight";' />
                     <label id='label_kg'>kg</label>
-                </div>
-                <div id='column1-row2'>
-                    <input id='height' onblur="'this.placeholder = &#39;Altura (m)&#39;'" onfocus="'this.placeholder = &#39;&#39;'" placeholder='Altura' pattern="^\d*(\.\d{0,2})?$" />
-                    <label id='label_m'>m²</label>
-                </div>
-            </div>
-            <div id='column2' class='centerV'>
-                <p id='equal-sign'>=</p>
-            </div>
-            <div id='column3' class='centerV'>
-                <p id='imc-result'>IMC (kg/m&#178;)</p>
-            </div>
+                </li>
+                <li id='fraction-bar'></li>
+                <li>
+                    <input id='height' placeholder='ALTURA' maxlength='4' pattern="^\d*(\.\d{0,2})?$" onclick='whereIsTheFocus = "height";' />
+                    <label id='label_m'>m</label>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <p id='equal-sign'>=</p>
+                </li>
+                <li>
+                    <p id='imc-result'>IMC</p>
+                    <label>kg/m&#178;</label>
+                </li>
+            </ul>
         </section>
-        <section>
-            <h2 id='situation'>Situação</h2>
+        <section id='situation'>
+            <h2>Situação</h2>
+            <p class='display-none'>Sempre consulte um profissional para ter certeza da sua condição. Outros fatores precisam ser levados em consideração.</p>
+        </section>
+        <section id='keyboard'>
+            <ul>
+                <li>
+                    <button class='button' onclick='Tabulate()'>&#11134;</button>
+                </li>
+                <li>
+                    <button class='button' onclick='Clean()'>C</button>
+                </li>
+                <li>
+                    <button class='button' onclick='TapErase()'>&#8592;</button>
+                </li>
+                <li>
+                    <button class='button' onclick='AddNumber(this)'>1</button>
+                </li>
+                <li>
+                    <button class='button' onclick='AddNumber(this)'>2</button>
+                </li>
+                <li>
+                    <button class='button' onclick='AddNumber(this)'>3</button>
+                </li>
+                <li>
+                    <button class='button' onclick='AddNumber(this)'>4</button>
+                </li>
+                <li>
+                    <button class='button' onclick='AddNumber(this)'>5</button>
+                </li>
+                <li>
+                    <button class='button' onclick='AddNumber(this)'>6</button>
+                </li>
+                <li>
+                    <button class='button' onclick='AddNumber(this)'>7</button>
+                </li>
+                <li>
+                    <button class='button' onclick='AddNumber(this)'>8</button>
+                </li>
+                <li>
+                    <button class='button' onclick='AddNumber(this)'>9</button>
+                </li>
+                <li>
+                    <button class='button' onclick='AddNumber(this)'>.</button>
+                </li>
+                <li>
+                    <button class='button' onclick='AddNumber(this)'>0</button>
+                </li>
+                <li>
+                    <button class='button' onclick='TapEnter()'>=</button>
+                </li>
+            </ul>
         </section>
         <section id='reference'>
             <details>
-                <summary>Referência</summary>
+                <summary>REFERÊNCIA</summary>
                 <table id="table-reference">
                     <thead>
                         <tr><th>Resultado</th><th>Situação</th></tr>
@@ -69,7 +140,7 @@
             </details>
         </section>
     </main>
-    <footer class='centerV'>
+    <footer>
         <p><a id='author' href='https://www.github.com/morenoalan' target='_blank'>Alan Moreno</a> <span class='invert-horizontal'>&#169;</span> <span id='copyleft-year'>2022</span> | <a href='https://www.github.com/morenoalan/imc' target='_blank'>Repository</a></p>
     </footer>
     <script type="text/javascript" id='script' src="script.js"></script>
