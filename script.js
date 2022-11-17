@@ -1,7 +1,7 @@
 const inputWeight = document.getElementById("weight");
 const inputHeight = document.getElementById("height");
-var currentInputWeight = '';
-var currentInputHeight = '';
+var currentInputWeight = '11';
+var currentInputHeight = '22';
 var whereIsTheFocus = 'inputWeight';
 
 function InitialState() {
@@ -115,23 +115,49 @@ function Clean() {
     InitialState();
 }
 
-
-/* in Process: */
-function updateInput() {
-    let replaceInputNumber = eval(whereIsTheFocus).value;
-    let onlyNumbers = replaceInputNumber.replace(/([^\d.])+/gim, '').replace(/^([^.]*\.[^.]*)\./, '$1');
-    eval(whereIsTheFocus).value = onlyNumbers;
-    console.log(replaceInputNumber);
+function RefreshCurrentValues(replacedFutureInput) {
+    if(whereIsTheFocus == 'inputWeight') {
+        currentInputWeight = replacedFutureInput;
+    }else if(whereIsTheFocus == 'inputHeight') {
+        currentInputHeight = replacedFutureInput;
+    }
 }
-function verifyMaxLength() {
-    whatsLength = eval(whereIsTheFocus).maxLength;
+function UpdateInput(replacedFutureInput) {
+    console.log(replacedFutureInput);
+    eval(whereIsTheFocus).value = replacedFutureInput;
+    RefreshCurrentValues(replacedFutureInput);
+}
+function VerifyMaxLength(replacedFutureInput) {
+    console.log(replacedFutureInput+' Veryf');
+    let focusedCurrentValue = eval('current' + whereIsTheFocus.charAt(0).toUpperCase() + whereIsTheFocus.slice(1));
+    console.log(replacedFutureInput.length+', '+eval(whereIsTheFocus).maxLength);
+    if(replacedFutureInput.length <= eval(whereIsTheFocus).maxLength){
+        console.log("go Update");
+        UpdateInput(replacedFutureInput);
+    }else{
+        eval(whereIsTheFocus).value = focusedCurrentValue;
+        RefreshCurrentValues(focusedCurrentValue);
+        console.log("don't go Update");
+        return;
+    }
+}
+function VerifyCharacters() {
+    let futureInputValue = eval(whereIsTheFocus).value;
+    let replacedFutureInput = futureInputValue.replace(/([^\d.])+/gim, '').replace(/^([^.]*\.[^.]*)\./, '$1');
+    console.log(replacedFutureInput+', '+futureInputValue);
+    if(replacedFutureInput != futureInputValue){
+        let focusedCurrentValue = eval('current' + whereIsTheFocus.charAt(0).toUpperCase() + whereIsTheFocus.slice(1));
+        UpdateInput(focusedCurrentValue);
+        console.log("different "+focusedCurrentValue+ " " +eval('current' + eval(whereIsTheFocus).charAt(0).toUpperCase() + eval(whereIsTheFocus).slice(1)));
+    }else{
+        VerifyMaxLength(replacedFutureInput);
+        /*RefreshCurrentValues(focusedCurrentValue);*/
+        console.log('equal');
+        return;
+    }
 }
 eval(whereIsTheFocus).addEventListener('input', printInput);
-function printInput(){
-    verifyMaxLength = eval(whereIsTheFocus).value;
-    if(verifyMaxLength < eval(whereIsTheFocus).maxLength){
-
-    }else{
-        eval(whereIsTheFocus).value = eval(concat('current',eval(whereIsTheFocus).charAt(0).toUpperCase(),eval(whereIsTheFocus).slice(1)));
-    }
+function printInput() {
+    console.log(currentInputWeight+", "+currentInputHeight);
+    VerifyCharacters();
 }
