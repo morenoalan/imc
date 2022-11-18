@@ -77,9 +77,10 @@ figcaption > p {
     padding-left: 5px;
     margin-right: 10px;
     height: 100%;
+    width: 40px;
 }
 #settings button,
-#flag {
+.flag {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 700;
@@ -89,8 +90,9 @@ figcaption > p {
     border: none;
     background-color: transparent;
 }
-#flag {
+.flag {
     border-radius: 5px;
+    width: 30px;
 }
 main {
     background-color: transparent;
@@ -131,14 +133,14 @@ ul {
     align-items: flex-end;
     border: 1px solid var(--color-gray-one);
     border-radius: 10px;
-    width: 133px;
+    width: 127px;
     
 }
 #dial input {
     /*height: 60px; /*12vh;*/
     min-height: 40px;
     /*max-height: 100px;*/
-    width: 113px;
+    width: 107px;
     background-color: transparent; /*var(--color-gray-one);*/
     padding-right: 20px;
     text-align: right;
@@ -164,6 +166,7 @@ ul {
     box-shadow: inset 1px 2px 4px #aaaaaa33, 0px 0px 8px #aaaaaacc;
 }
 #dial ul:first-child label {
+    transform-origin: top left;
     transform: translate(-18px, -18px);
     height: 0;
     font-family: 'Source Code Pro', monospace;
@@ -194,9 +197,9 @@ ul {
 }
 #dial > ul:last-child > li:last-child {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: flex-start;
-    align-items: flex-end;
+    align-items: center;
     width: auto;
 }
 #dial > ul:last-child > li:last-child > p {
@@ -205,8 +208,7 @@ ul {
     color: var(--color-gray-one);
 }
 #dial ul:last-child label {
-    transform-origin: right top;
-    transform: translate(41px, -18px);
+    transform: translate(2px, 3px);
     height: 0;
     font-family: 'Source Code Pro', monospace;
     font-weight: 700;
@@ -294,6 +296,7 @@ table, details > p {
     color: var(--color-gray-two);
     font-weight:400;
     font-size: 12px;
+    margin-bottom: 20px;
 }
 th, details > p {
     background-color: var(--color-gray-one);
