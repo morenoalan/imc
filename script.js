@@ -1,3 +1,28 @@
+/* Pre-load Variables */
+var currentLang = ['lang-pt', 'lang-en'];
+var currentSist = ['sist-int', 'sist-imp'];
+
+/* Storage Section */
+/*
+function saveTextOnLocalStorage(){
+    var storedLang = currentLang[0];
+    var storedSist = currentSist[0];
+}
+
+window.addEventListener('beforeunload', function(){
+    saveTextOnLocalStorage();
+});
+
+if(localStorage.getItem('storedLang') != null){
+    var storedLang = currentLang[0];
+    list.push(list.splice(0,1)[0]);
+    //currentLang = localStorage.getItem('currentLang');
+}
+if(localStorage.getItem('currentSist') != null){
+    currentSist = localStorage.getItem('currentSist');
+}
+*/
+/* Machine */
 const inputWeight = document.getElementById('weight');
 const inputHeight = document.getElementById('height');
 const situTitle = document.getElementById('situation-title');
@@ -9,8 +34,6 @@ const equalSign = document.getElementById('equal-sign');
 var currentInputWeight = '';
 var currentInputHeight = '';
 var whereIsTheFocus = 'inputWeight';
-var currentLang = ['lang-pt', 'lang-en'];
-var currentSist = ['sist-mks', 'sist-imp'];
 
 function CheckIfMobile(){
     let checkMob = false;
@@ -28,16 +51,17 @@ function CheckIfMobile(){
 }
 
 function InitialState(){
-    if(currentLang == 'lang-pt'){
+    if(currentLang[0] == 'lang-pt'){
         bmiResult.innerHTML = 'IMC';
         situTitle.innerHTML = 'Situação';
-    }else if(currentLang == 'lang-en'){
+    }else if(currentLang[0] == 'lang-en'){
         bmiResult.innerHTML = 'BMI';
         situTitle.innerHTML = 'Situação';
     }
     situTitle.setAttribute('class', '');
     bmiResult.style.color = 'var(--color-gray-two)';
     situTitle.style.color = 'var(--color-gray-two)';
+    situStatus.setAttribute('class', 'display-none');
     situAlert.setAttribute('class', 'display-none');
     equalSign.innerHTML = '=';
     inputHeight.value = '';
@@ -49,18 +73,6 @@ function InitialState(){
     CheckIfMobile();
 }
 InitialState();
-
-var firstListOfChanges = [];
-var secondListOfChanges = [];
-function ChangeClass(list){
-    firstListOfChanges = document.getElementsByClassName(list[0]);
-    secondListOfChanges = document.getElementsByClassName(list[1]);
-    for(let i=0; i < firstListOfChanges.length; i++){
-        firstListOfChanges[i].classList.add('display-none');
-        secondListOfChanges[i].classList.remove('display-none');
-    }
-    list.push(list.splice(0,1)[0]);
-}
 
 const statusList = [
     {
@@ -94,19 +106,31 @@ const statusList = [
         'langen':'Obese (Class II)'
     },
     {
-        'range':'40',
+        'range':'999999',
         'langpt':'Obesidade III (mórbida)',
         'langen':'Obese (Class III)'
     }
 ];
-
+var setStatus;
+function GetStatus(){
+    for(let i=0; i<statusList.length; i++){        
+        if(valuePrint < statusList[i].range){
+            currentLang[0] == 'lang-pt' ? setStatus = statusList[i].langpt : setStatus = statusList[i].langen;
+            return;
+        }
+    }
+}
+var valuePrint;
 function Calculate(){
-    let valuePrint = '';
     let valueResult = '';
     let valueWeight = Number(inputWeight.value);
     let valueHeight = Number(inputHeight.value);
     if(valueWeight && valueHeight != ''){
-        valueResult = valueWeight / Math.pow(valueHeight, 2);
+        if(currentSist[0] == 'sist-int'){
+            valueResult = valueWeight / Math.pow(valueHeight, 2);
+        }else if(currentSist[0] == 'sist-imp'){
+            valueResult = (valueWeight / Math.pow(valueHeight, 2)) * 703;
+        }
         valuePrint = parseFloat(valueResult.toFixed(1));
         if (valuePrint > 100){
             bmiResult.innerHTML = '100';
@@ -121,40 +145,13 @@ function Calculate(){
             situAlert.setAttribute('class', '');
             situTitle.setAttribute('class', 'display-none');
             situStatus.setAttribute('class', '');
+            GetStatus();
+            situStatus.innerHTML = setStatus;
         }
-        
-        for(let i=0; i<statusList.length; i++){        
-            if(valuePrint < statusList[i].range){
-                currentLang[0] == 'lang-pt' ? console.log(statusList[i].langpt) : console.log(statusList[i].langen);
-                return;
-            }
-        }
-        if(valuePrint >= 40){
-            currentLang[0] == 'lang-pt' ? console.log(statusList[statusList.length-1].langpt) : console.log(statusList[statusList.length-1].langen);
-            console.log('range > 40');
-        }
-
-        if(valuePrint < 17){
-            situStatus.innerHTML = 'Muito abaixo do peso';
-        }else if(valuePrint < 18.49){
-            situStatus.innerHTML = 'Abaixo do peso';
-        }else if(valuePrint < 24.99){
-            situStatus.innerHTML = 'Peso normal';
-        }else if(valuePrint < 29.99){
-            situStatus.innerHTML = 'Acima do peso';
-        }else if(valuePrint < 34.99){
-            situStatus.innerHTML = 'Obesidade I';
-        }else if(valuePrint < 39.99){
-            situStatus.innerHTML = 'Obesidade II (severa)';
-        }else{
-            situStatus.innerHTML = 'Obesidade III (mórbida)';
-        }
-
     }else{
         InitialState();
     }
 }
-Calculate();
 
 document.getElementById('copyleft-year').innerHTML =  new Date().getUTCFullYear();
 
@@ -176,6 +173,12 @@ document.addEventListener('keydown', function onEvent(event){
     if (event.key === 'Enter'){
         event.preventDefault();
         TapEnter();
+    }
+    if (event.key === ","){
+        event.preventDefault();
+        let doc = new DOMParser().parseFromString('<p>.</p>', "text/html");
+        let digit = doc.getElementsByTagName('p')[0];
+        AddNumber(digit);
     }
 });
 
@@ -203,6 +206,33 @@ function TapEnter(){
 
 function Clean(){
     InitialState();
+}
+
+var firstListOfChanges = [];
+var secondListOfChanges = [];
+function ChangeClass(list){
+    firstListOfChanges = document.getElementsByClassName(list[0]);
+    secondListOfChanges = document.getElementsByClassName(list[1]);
+    for(let i=0; i < firstListOfChanges.length; i++){
+        firstListOfChanges[i].classList.add('display-none');
+        secondListOfChanges[i].classList.remove('display-none');
+    }
+    list.push(list.splice(0,1)[0]);
+    if(list[0] == 'lang-pt'){
+        inputWeight.setAttribute('placeholder', 'PESO');
+        inputHeight.setAttribute('placeholder', 'ALTURA');
+        document.getElementById('title').innerHTML = 'IMC';
+        GetStatus();
+        situStatus.innerHTML = setStatus;
+    }else if(list[0] == 'lang-en'){
+        inputWeight.setAttribute('placeholder', 'WEIGHT');
+        inputHeight.setAttribute('placeholder', 'HEIGHT');
+        document.getElementById('title').innerHTML = 'BMI';
+        GetStatus();
+        situStatus.innerHTML = setStatus;
+    }else if(list[0] == 'sist-int' || list[0] == 'sist-imp'){
+        InitialState();
+    }
 }
 
 function RefreshCurrentValues(replacedFutureInput){

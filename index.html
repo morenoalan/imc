@@ -3,19 +3,18 @@
 <head>
     <meta charset='utf-8' />
     <meta name='viewport' content='width=device-width, user-scalable=no, initial-scale=1' />
-    <title>IMC</title>
+    <title id='title'>IMC</title>
     <link id='favicon' rel='shortcut icon' href='https://docs.google.com/uc?id=15mmGp-wOTbGOccjuBjh9EMOhczZ2ZDx4' alt='imc-logo' />
     <meta name='description' content='Calculadora de IMC (Índice de Massa Corporal)' />
     <meta name='keywords' content='IMC, Cálculo de IMC, Índice de Massa Corporal' />
     <meta name='author' content='github.com/morenoalan' />
     <meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109' />
     <meta name='google-adsense-platform-domain' content='blogspot.com' />
-    <link rel='stylesheet' href='style.css' type='text/css' />
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' />
     <link rel='preconnect' href='https://fonts.googleapis.com' />
     <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin='crossorigin' />
     <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap' />
     <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600;700;800;900&display=swap' />
+    <link rel='stylesheet' href='style.css' type='text/css' />
 </head>
 <body>
     <noscript>
@@ -35,12 +34,12 @@
         <ul id='settings'>
             <li>
                 <button id='select-lang' onclick='ChangeClass(currentLang);'>
-                    <span class='lang-pt'><img class='flag' src='https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/800px-Flag_of_the_United_States.svg.png' alt='US'/></span>
-                    <span class='lang-en display-none'><img class='flag' src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/749px-Flag_of_Brazil.svg.png' alt='BR'/></span>
+                    <span class='lang-pt'><img class='flag' src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/749px-Flag_of_Brazil.svg.png' alt='BR'/></span>
+                    <span class='lang-en display-none'><img class='flag' src='https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/800px-Flag_of_the_United_States.svg.png' alt='US'/></span>
                 </button>
             </li>
             <li>
-                <button id='select-sist' onclick='ChangeClass(currentSist);'><span class='sist-mks'>lb/in&#178;</span><span class='sist-imp display-none'>kg/m&#178;</span></button>
+                <button id='select-sist' onclick='ChangeClass(currentSist);'><span class='sist-int'>kg/m&#178;</span><span class='sist-imp display-none'>lb/in&#178;</span></button>
             </li>
         </ul>
     </header>
@@ -49,12 +48,12 @@
             <ul>
                 <li>
                     <input id='weight' placeholder='PESO' autofocus='autofocus' maxlength='5' onclick='whereIsTheFocus="inputWeight";' />
-                    <label for='weight'><span class='sist-mks'>kg</span><span class='sist-imp display-none'>lb</span></label>
+                    <label for='weight'><span class='sist-int'>kg</span><span class='sist-imp display-none'>lb</span></label>
                 </li>
                 <li id='fraction-bar'></li>
                 <li>
                     <input id='height' placeholder='ALTURA' maxlength='4' onclick='whereIsTheFocus="inputHeight";' />
-                    <label for='height'><span class='sist-mks'>m</span><span class='sist-imp display-none'>in</span></label>
+                    <label for='height'><span class='sist-int'>m</span><span class='sist-imp display-none'>in</span></label>
                 </li>
             </ul>
             <ul>
@@ -63,13 +62,13 @@
                 </li>
                 <li>
                     <p id='bmi-result'><span class='lang-pt'>IMC</span><span class='lang-en display-none'>BMI</span></p>
-                    <label for='bmi-result'><span class='sist-mks'>kg/m&#178;</span><span class='sist-imp display-none'>lb/in&#178</span></label>
+                    <label for='bmi-result'><span class='sist-int'>kg/m&#178;</span><span class='sist-imp display-none'>lb/in&#178;</span></label>
                 </li>
             </ul>
         </section>
         <section id='situation'>
             <h2 id='situation-title'><span class='lang-pt'>Situação</span><span class='lang-en display-none'>Situation</span></h2>
-            <h2 id='situation-status'></h2>
+            <h2 id='situation-status' class='display-none'></h2>
             <p id='situation-alert' class='display-none'><span class='lang-pt'>Sempre consulte um profissional para ter certeza da sua condição. Outros fatores precisam ser levados em consideração.</span><span class='lang-en display-none'>Always consult a professional to make sure of your condition. Other factors need to be considered.</span></p>
         </section>
         <section id='keyboard'>
@@ -127,7 +126,7 @@
                 <table class='table-reference'>
                     <thead>
                         <tr>
-                            <th><span class='lang-pt'>Resultado</span><span class='lang-en display-none'>Result</span> (<span class='sist-mks'>Kg/m&#178;</span><span class='sist-imp display-none'>lb/in&#178</span>)</th>
+                            <th><span class='lang-pt'>Resultado</span><span class='lang-en display-none'>Result</span> (<span class='sist-int'>Kg/m&#178;</span><span class='sist-imp display-none'>lb/in&#178;</span>)</th>
                             <th><span class='lang-pt'>Situação</span><span class='lang-en display-none'>Situation</span></th>
                         </tr>
                     </thead>
