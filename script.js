@@ -70,7 +70,7 @@ function InitialState(){
     currentInputHeight = '';
     inputWeight.focus();
     whereIsTheFocus = 'inputWeight';
-    CheckIfMobile();
+    //CheckIfMobile();
 }
 InitialState();
 
@@ -165,20 +165,44 @@ function Tabulate(){
     }
 }
 
+var hearingKeyDown = [
+    {'key':'1', 'print': '1'},
+    {'key':'2', 'print': '2'},
+    {'key':'3', 'print': '3'},
+    {'key':'4', 'print': '4'},
+    {'key':'5', 'print': '5'},
+    {'key':'6', 'print': '6'},
+    {'key':'7', 'print': '7'},
+    {'key':'8', 'print': '8'},
+    {'key':'9', 'print': '9'},
+    {'key':'0', 'print': '0'},
+    {'key':',', 'print': '.'},
+    {'key':'.', 'print': '.'}
+];
 document.addEventListener('keydown', function onEvent(event){
     if (event.key === 'Tab'){
         event.preventDefault();
         Tabulate();
+        return;
     }
     if (event.key === 'Enter'){
         event.preventDefault();
         TapEnter();
+        return;
     }
-    if (event.key === ","){
+    if (event.key === 'Backspace'){
         event.preventDefault();
-        let doc = new DOMParser().parseFromString('<p>.</p>', "text/html");
-        let digit = doc.getElementsByTagName('p')[0];
-        AddNumber(digit);
+        TapErase()
+        return;
+    }
+    for(let i=0; i<hearingKeyDown.length; i++){
+        if (event.key ===  hearingKeyDown[i].key){
+            event.preventDefault();
+            let doc = new DOMParser().parseFromString('<p>'+hearingKeyDown[i].print+'</p>', 'text/html');
+            let digit = doc.getElementsByTagName('p')[0];
+            AddNumber(digit);
+            return;
+        }
     }
 });
 
