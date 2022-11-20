@@ -3,7 +3,6 @@
     padding: 0px;
     -webkit-user-select: none;
     user-select: none;
-    touch-action: none;
     -webkit-tap-highlight-color: transparent;
     outline: none;
 }
@@ -13,7 +12,7 @@
     --color-gray-one: #D8D8D8;
     --color-gray-two: #696969;
     --color-body: transparent;
-    --max-width: 300px;
+    --max-width: 350px;
 }
 html, body {
     background: var(--color-body);
@@ -23,12 +22,32 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     text-align: flex-start;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     background-color: var(--color-body);
+}
+#header-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+}
+#header-main::-webkit-scrollbar {
+    width: 8px;
+}
+#header-main::-webkit-scrollbar-track {
+    display: none;
+}
+#header-main::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    background: var(--color-gray-one);
 }
 header {
     width: var(--max-width);
@@ -95,22 +114,14 @@ figcaption > p {
     width: 30px;
 }
 main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     background-color: transparent;
-    height: auto;
-    width: 300px;
     height: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden;
-}
-main::-webkit-scrollbar {
-    width: 8px;
-}
-main::-webkit-scrollbar-track {
-    display: none;
-}
-main::-webkit-scrollbar-thumb {
-    border-radius: 0;
-    background: var(--color-gray-one);
+    width: var(--max-width);
+    height: 100%;
 }
 ul {
     list-style: none;
@@ -119,12 +130,14 @@ ul {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    padding: 9px
+    width: var(--max-width);
 }
 #dial > ul:first-child {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-end;
+    width: calc(var(--max-width) / 2);
 }
 #dial > ul:first-child > li:not(:nth-child(2)) {
     display: flex;
@@ -137,11 +150,9 @@ ul {
     
 }
 #dial input {
-    /*height: 60px; /*12vh;*/
     min-height: 40px;
-    /*max-height: 100px;*/
     width: 107px;
-    background-color: transparent; /*var(--color-gray-one);*/
+    background-color: transparent;
     padding-right: 20px;
     text-align: right;
     line-height: 20px;
@@ -174,7 +185,7 @@ ul {
     font-weight: 700;
     font-size: 13px;
     color: var(--color-gray-two);
-    /*z-index: -1;*/
+    z-index: -1;
 }
 #fraction-bar {
     height: 5px;
@@ -185,7 +196,7 @@ ul {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    width: 150px;
+    width: calc(var(--max-width) / 2);
     font-family: 'Source Code Pro', monospace;
     font-weight: 900;
 }
@@ -194,7 +205,7 @@ ul {
 }
 #dial > ul:last-child > li:first-child {
     color: var(--color-gray-two);
-    width: 22px;
+    width: auto;
 }
 #dial > ul:last-child > li:last-child {
     display: flex;
@@ -210,7 +221,6 @@ ul {
 }
 #dial ul:last-child label {
     transform: translate(2px, 3px);
-    min-width: 60px;
     height: 0;
     font-family: 'Source Code Pro', monospace;
     font-weight: 700;
@@ -219,7 +229,6 @@ ul {
 }
 #situation {
     margin-top: 10px;
-    margin-bottom: 20px;
     text-align: center;
 }
 #situation > h2 {
@@ -236,6 +245,9 @@ ul {
     padding: 4px 20px 4px 20px;
     background-color: var(--color-guava);
     color: var(--color-white);
+}
+#keyboard {
+    width: 300px;
 }
 #keyboard > ul {
     display: flex;
@@ -255,7 +267,6 @@ ul {
     width: 88px;
     height: 6vh;
     min-height: 30px;
-    /*max-height: 50px;*/
     border-radius: 10px;
     outline: none;
     border: 1px solid var(--color-gray-one);
@@ -272,6 +283,10 @@ ul {
     box-shadow: 0 2px var(--color-gray-one);
     transform: translateY(1px);
 }
+.button > svg {
+    fill: #696969;
+    transform: scale(.7);
+}
 #keyboard > ul > li:last-child .button {
     background-color: var(--color-guava);
     color: var(--color-white);
@@ -279,6 +294,12 @@ ul {
 #keyboard > ul > li:last-child .button:hover {
     background-color: var(--color-guava);
     color: var(--color-white);
+}
+#reference {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 details, table {
     width: var(--max-width);
@@ -313,9 +334,6 @@ details > p > a {
 tr:nth-child(even) {
     background-color: var(--color-gray-one);
 }
-#footer_space {
-    height: 40px;
-}
 footer {
     display: flex;
     flex-direction: column;
@@ -324,8 +342,8 @@ footer {
     background-color: var(--color-guava);
     padding-top: 5px;
     padding-bottom: 5px;
-    bottom: 0;
     height: 30px;
+    bottom: -30px;
     width: 100%;
     text-align: center;
 }

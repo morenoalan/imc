@@ -155,6 +155,14 @@ function Calculate(){
 
 document.getElementById('copyleft-year').innerHTML =  new Date().getUTCFullYear();
 
+function Clean(){
+    InitialState();
+}
+
+function TapErase(){
+    eval(whereIsTheFocus).value = eval(whereIsTheFocus).value.slice(0, -1);
+}
+
 function Tabulate(){
     if(whereIsTheFocus == 'inputWeight'){
         inputHeight.focus();
@@ -165,7 +173,26 @@ function Tabulate(){
     }
 }
 
+function TapEnter(){
+    if(inputWeight.value == ''){
+        inputWeight.focus();
+        whereIsTheFocus = 'inputWeight';
+    }else if(inputHeight.value == ''){
+        inputHeight.focus();
+        whereIsTheFocus = 'inputHeight';
+    }else{
+        Calculate();
+        Tabulate();
+    }
+}
+
+function AddNumber(digit){
+    eval(whereIsTheFocus).value += digit.innerHTML;
+    printInput();
+}
+
 var hearingKeyDown = [
+    {'key':'0', 'print': '0'},
     {'key':'1', 'print': '1'},
     {'key':'2', 'print': '2'},
     {'key':'3', 'print': '3'},
@@ -175,7 +202,6 @@ var hearingKeyDown = [
     {'key':'7', 'print': '7'},
     {'key':'8', 'print': '8'},
     {'key':'9', 'print': '9'},
-    {'key':'0', 'print': '0'},
     {'key':',', 'print': '.'},
     {'key':'.', 'print': '.'}
 ];
@@ -206,32 +232,6 @@ document.addEventListener('keydown', function onEvent(event){
     }
 });
 
-function AddNumber(digit){
-    eval(whereIsTheFocus).value += digit.innerHTML;
-    printInput();
-}
-
-function TapErase(){
-    eval(whereIsTheFocus).value = eval(whereIsTheFocus).value.slice(0, -1);
-}
-
-function TapEnter(){
-    if(inputWeight.value == ''){
-        inputWeight.focus();
-        whereIsTheFocus = 'inputWeight';
-    }else if(inputHeight.value == ''){
-        inputHeight.focus();
-        whereIsTheFocus = 'inputHeight';
-    }else{
-        Calculate();
-        Tabulate();
-    }
-}
-
-function Clean(){
-    InitialState();
-}
-
 var firstListOfChanges = [];
 var secondListOfChanges = [];
 function ChangeClass(list){
@@ -246,14 +246,12 @@ function ChangeClass(list){
         inputWeight.setAttribute('placeholder', 'PESO');
         inputHeight.setAttribute('placeholder', 'ALTURA');
         document.getElementById('title').innerHTML = 'IMC';
-        GetStatus();
-        situStatus.innerHTML = setStatus;
+        InitialState();
     }else if(list[0] == 'lang-en'){
         inputWeight.setAttribute('placeholder', 'WEIGHT');
         inputHeight.setAttribute('placeholder', 'HEIGHT');
         document.getElementById('title').innerHTML = 'BMI';
-        GetStatus();
-        situStatus.innerHTML = setStatus;
+        InitialState();
     }else if(list[0] == 'sist-int' || list[0] == 'sist-imp'){
         InitialState();
     }
