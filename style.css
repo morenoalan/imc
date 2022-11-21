@@ -165,16 +165,18 @@ ul {
     line-height: 35px;
 }
 #dial input::placeholder {
-    /*padding-right: 5px;*/
     text-align: right;
     color: var(--color-gray-two);
     border: hidden;
     font-size: 20px;
     font-weight: 700;
 }
-#dial > ul:first-child > li:focus-within input {
+#dial > ul:first-child > li:focus-within {
+    outline: 0.5px solid var(--color-gray-two);
+    /*
     border-radius: 10px;
     box-shadow: inset 1px 2px 4px #aaaaaa33, 0px 0px 8px #aaaaaacc;
+    */
 }
 #dial ul:first-child label {
     transform-origin: top left;
